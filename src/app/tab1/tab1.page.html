@@ -1,17 +1,22 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
+    <ion-title> Mis Cursos </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <ion-list>
+    <ion-list *ngFor="let subject of subjects">
+      <ion-list-header style="font-size: large; background-color: white; color: black">
+        {{subject.name}}
+      </ion-list-header>
+      <ion-item *ngFor="let date of subject.date">
+        <ion-label>
+          <h3>{{date.day}}</h3>
+          <h3>{{date.hora.string}}</h3>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-list>
+  <!-- <app-explore-container name="Mis Cursos"></app-explore-container> -->
 </ion-content>
